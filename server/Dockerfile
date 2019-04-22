@@ -17,6 +17,6 @@ RUN npm install ws
 RUN npm install express
 COPY . . 
 
-EXPOSE 8080
+#EXPOSE 8080
 
 CMD ["npm","start"]

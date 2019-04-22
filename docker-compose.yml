@@ -1,15 +1,18 @@
-
-server:
-        build: ./server
-        # ports: 
-        # - "40510:8000"
-        command: "node server.js"
-client:
-        build: ./client
-        #ports: 
-         # - "12345:8080"
-        command: "node client.js"
-
-
-
+version: "3.3"
+services:
+        server:
+                build: ./server
+                ports: 
+                       - 40510:40510
+                command: "node server.js"
+        client:
+                build: ./client
+                #ports: 
+                 # - "12345:8080"
+                command: "node client.js"
                 
+                network_mode: host
+
+                depends_on:
+                            - server
+        
