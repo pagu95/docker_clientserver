@@ -50,7 +50,7 @@ console.log('SERVER OPENED');
 		//console.log('now i print my array\n' +JSON.stringify(myarray))
 	ws.on('message',function(message){
 		
-		if(String(message) != 'connected'){
+		if(String(message).startsWith('[{"')== true){
 			
 			console.log ('something else came here')
 			fs.writeFile('myjsonarray.json',message,'utf-8');	
