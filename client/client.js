@@ -1,6 +1,7 @@
 const WebSocket = require('ws');
-const ws = new WebSocket('ws://localhost:40510');
+const ws = new WebSocket('ws://192.168.1.13:40510');
 
+const envar= process.env.varForGroup;
 var jarray= [];
 
 function groupBy(key, array) {
@@ -35,7 +36,7 @@ ws.onmessage = function (ev) {
 	
 	jarray = JSON.parse(ev.data);
 
-	jarray = groupBy("color",jarray);
+	jarray = groupBy(envar,jarray);
 	
 	jarray = JSON.stringify(jarray);
 	
